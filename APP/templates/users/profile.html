@@ -1,0 +1,5 @@
+{% extends "layouts/layout.html" %}
+{% block content %}
+<h1>{{ user.full_name() }}'s Profile</h1>
+<h1>{{current_user.update_last_seen() }}</h1>
+{% endblock content %}

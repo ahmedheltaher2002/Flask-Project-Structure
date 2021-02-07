@@ -1,0 +1,21 @@
+{% from "layouts/helpers/macros/form.html" import form_text with context %}
+
+{% extends "layouts/layout.html" %} {% block content %}
+<div class="col-6 mx-auto">
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 text-center">Enter Your Email</legend>
+                <div class="form-group">
+                    {{ form_text(form.email) }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info btn-block") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

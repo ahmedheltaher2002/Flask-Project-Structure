@@ -1,0 +1,29 @@
+{% macro form_text(field, value_on_get='') %}
+    {{ field.label(class="form-control-label") }}
+    {% if value_on_get %}
+        {{ field(class="form-control form-control-lg", value=value_on_get) }}
+    {% else %}
+        {% if field.errors %}
+            {{ field(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in field.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ field(class="form-control form-control-lg") }}
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% macro form_submit(field) %}
+<div class="form-group">
+    {{ field(class="btn btn-outline-info") }}
+</div>
+{% endmacro %}
+
+{% macro form_checkbox(field) %}
+<div class="form-check">
+    {{ field(class="form-check-input") }} {{ field.label(class="form-check-label") }}
+</div>
+{% endmacro %}
